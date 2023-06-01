@@ -1,3 +1,3 @@
 # gmailEmailExamples
 
-Example to send and veriy emails
+Example to send and verify emails
