@@ -1,19 +1,34 @@
 *** Settings ***
 
-Documentation         Test cases to Verify emails
-Library               QWeb
-Suite Setup           Open Browser                about:blank            chrome
-Suite Teardown        Close All Browsers
-Library               Collections
-Library               ../libraries/sendEmail.py
+Documentation          Test cases for verifying emails
+Library                QWeb
+Suite Setup            Open Browser                about:blank          chrome
+Suite Teardown         Close All Browsers
+Library                Collections
+Library                ../libraries/verifyEmail.py
 
 *** Variables ***
-${APPPASSGMAIL}       #Stored in suite or robot varibale as hidden
-${SENDER}             emailAddressSender
-${RECIPIENT}          emailAddressReceiver
+${APPPASGMAIL}         #Stored in suite or robot varibale as hidden
+${EMAIL}               emailAddressGmailAccount
 
 *** Test Cases ***
-Example send an email with subject and body
-    ${SUBJECT}=       Convert To String           emailSubject
-    ${textInBody}=    Convert To String           emailBody
-    Send New Mail     email=${SENDER}             pwd=${APPPASSGMAIL}    subject=${SUBJECT}    inbody=${textInBody}    recipient=${RECIPIENT}
+Get URL from Email
+    [Tags]             url    email
+    [Documentation]    Sample test to Open all URL available in an email
+    ...                https://pypi.org/project/imap-tools/#search-criteria
+    ${SUBJECT}=        Convert To String           something in the subject
+    ${textInBody}=     Convert To String           something in the body
+    @{links}=          Get Email Links Html        email=${EMAIL}       pwd=${APPPASSGMAIL}    subject=${SUBJECT}    inbody=${textInBody}
+    FOR                ${link}                     IN                   @{links}
+        Log To Console                             located a link: ${link}
+        OpenWindow
+        GoTo           ${link}
+        # add steps here..
+    END
+
+Verify New Mail Exist
+    [Tags]             url    email    verifyemail
+    [Documentation]    Check if unread email exist based on something in the subject and body
+    ${SUBJECT}=        Convert To String           something in the subject
+    ${textInBody}=     Convert To String           something in the body
+    ${test}=           Verify Email Exist          email=${EMAIL}       pwd=${APPPASSGMAIL}    subject=${SUBJECT}    inbody=${textInBody}
