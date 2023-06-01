@@ -39,7 +39,7 @@ def get_email_links_text(email, pwd, subject, inbody, folder='INBOX'):
 
     return links
 
-#function to check of there is an existing email that is unread and contains something in the subject and in the body of the email. 
+#function to check if there is an existing email that is unread and contains something in the subject and in the body of the email. 
 def verify_email_exist(email, pwd, subject, inbody, folder='INBOX'):
     with MailBox(host='imap.gmail.com', port=993).login(email, pwd, folder) as mailbox:
         bodies = [msg.text for msg in mailbox.fetch(AND(subject=subject, text=inbody, seen=False), reverse = True)]
