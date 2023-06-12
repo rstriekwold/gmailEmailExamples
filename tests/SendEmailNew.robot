@@ -12,14 +12,12 @@ ${user}            robert.striekwold@gmail.com
 ${APPPASSGMAIL}    
 ${sender}          robert.striekwold@gmail.com
 ${subject}         CRT test
-@{recipients}      robert.striekwold@copado.com
+@{recipients}      rstriekwold@copado.com
 
 
 *** Test Cases ***
 
 Send Email
     [Documentation]    Uses environent variables from CRT cloud container.
-    ${body}=    Catenate    SEPARATOR=\n   Status of the Copado Robotic Testing suite
-    ...                        Passed
-    ...                        Detailed report: blablabla
+    ${body}=    Set Variable    Test email
     Send Email              ${subject}  ${body}  ${sender}  @{recipients}  ${user}  ${APPPASSGMAIL}
