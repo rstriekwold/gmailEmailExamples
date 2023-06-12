@@ -8,7 +8,9 @@ def send_email(subject, body, sender, recipients, user, password):
     msg['Subject'] = subject
     logger.warn("subject done")
     msg['From'] = sender
+    logger.warn("sender done")
     msg['To'] = ', '.join(recipients)
+    logger.warn("recipients done")
     smtp_server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
     smtp_server.login(user, password)
     smtp_server.sendmail(sender, recipients, msg.as_string())
