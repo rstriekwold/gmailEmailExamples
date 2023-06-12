@@ -1,10 +1,10 @@
 import smtplib
 from email.mime.text import MIMEText
-from robot.libraries.BuiltIn import BuiltIn
+from robot.api import logger
 
 def send_email(subject, body, sender, recipients, user, password):
     msg = MIMEText(body)
-    BuiltIn().pass(f"{msg}")
+    logger.warn(%(body))
     msg['Subject'] = subject
     msg['From'] = sender
     msg['To'] = ', '.join(recipients)
