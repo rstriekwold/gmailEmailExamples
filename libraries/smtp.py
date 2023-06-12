@@ -13,7 +13,7 @@ def send_email(subject, body, sender, recipients, user, password):
     logger.warn("recipients done")
     smtp_server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
     logger.warn("port set")
-    logger.warn("user")
+    logger.warn("This is the username %s" %(user))
     logger.warn("password")
     smtp_server.login(user, password)
     logger.warn("login done")
