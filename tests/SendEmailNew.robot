@@ -12,12 +12,12 @@ ${user}            robert.striekwold@gmail.com
 ${APPPASSGMAIL}    
 ${sender}          robert.striekwold@gmail.com
 ${subject}         CRT test
-@{recipients}      robert.striekwold@copado.com,robert.striekwold@gmail.com
+@{recipients}      robert.striekwold@copado.com
 
 
 *** Test Cases ***
 
 Send Email
     [Documentation]    Uses environent variables from CRT cloud container.
-    ${body}=    Catenate        Jus a test
+    ${body}=    Set Variable        Jus a test
     Send Email              ${subject}  ${body}  ${sender}  @{recipients}  ${user}  ${APPPASSGMAIL}
