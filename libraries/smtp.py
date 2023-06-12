@@ -4,7 +4,7 @@ from robot.api import logger
 
 def send_email(subject, body, sender, recipients, user, password):
     msg = MIMEText(body)
-    logger.warn(%(body))
+    logger.warn(body)
     msg['Subject'] = subject
     msg['From'] = sender
     msg['To'] = ', '.join(recipients)
