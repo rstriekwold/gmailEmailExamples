@@ -12,7 +12,7 @@ ${user}            robert.striekwold@gmail.com
 ${APPPASSGMAIL}    
 ${sender}          robert.striekwold@gmail.com
 ${subject}         CRT test
-${recipients}      rstriekwold@copado.com, robert.striekwold@gmail.com
+${recipients}      rstriekwold@copado.com
 
 
 *** Test Cases ***
