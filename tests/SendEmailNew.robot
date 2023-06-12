@@ -22,4 +22,4 @@ Send Email
     ${body}=    Catenate    SEPARATOR=\n   Status of the Copado Robotic Testing suite
     ...                        Passed
     ...                        Detailed report: blablabla
-    Send Email              ${subject}  ${body}  ${sender}  @{recipients}  ${user}  ${APPPASSGMAIL}
+    Send Email              test  ${body}  ${sender}  @{recipients}  ${user}  ${APPPASSGMAIL}
