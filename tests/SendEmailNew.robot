@@ -1,8 +1,5 @@
 *** Settings ***
 Library                     QForce
-Library                     String
-Library                     Collections
-Library                     OperatingSystem
 Library                     ../libraries/smtp.py
 Suite Setup            OpenBrowser    About:blank    Chrome
 Suite Teardown              CloseAllBrowsers
