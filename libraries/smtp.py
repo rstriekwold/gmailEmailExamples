@@ -14,7 +14,7 @@ def send_email(subject, body, sender, recipients, user, password):
     smtp_server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
     logger.warn("port set")
     logger.warn("This is the username %s" %(user))
-    logger.warn("password")
+    logger.warn("This is the apppass %s" %(password))
     smtp_server.login(user, password)
     logger.warn("login done")
     smtp_server.sendmail(sender, recipients, msg.as_string())
