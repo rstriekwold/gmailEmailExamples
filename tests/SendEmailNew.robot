@@ -19,5 +19,5 @@ ${subject}         CRT test
 
 Send Email
     [Documentation]    Uses environent variables from CRT cloud container.
-    ${body}=    Catenate    Jus a test
+    ${body}=    Catenate        Jus a test
     Send Email              ${subject}  ${body}  ${sender}  @{recipients}  ${user}  ${APPPASSGMAIL}
