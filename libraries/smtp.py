@@ -10,5 +10,6 @@ def send_email(subject, body, sender, recipients, user, password):
     msg['To'] = ', '.join(recipients)
     smtp_server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
     smtp_server.login(user, password)
+    logger.warn("test message")
     smtp_server.sendmail(sender, recipients, msg.as_string())
     smtp_server.quit()
