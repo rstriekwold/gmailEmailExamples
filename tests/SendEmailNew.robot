@@ -12,7 +12,7 @@ ${user}            robert.striekwold@gmail.com
 ${APPPASSGMAIL}    
 ${sender}          robert.striekwold@gmail.com
 ${subject}         CRT test
-@{recipients}      rstriekwold@copado.com, robert.striekwold@gmail.com
+${recipients}      rstriekwold@copado.com, robert.striekwold@gmail.com
 
 
 *** Test Cases ***
@@ -20,4 +20,4 @@ ${subject}         CRT test
 Send Email
     [Documentation]    Uses environent variables from CRT cloud container.
     ${body}=    Set Variable    Test email
-    Send Email              ${subject}  ${body}  ${sender}  @{recipients}  ${user}  ${APPPASSGMAIL}
+    Send Email              ${subject}  ${body}  ${sender}  ${recipients}  ${user}  ${APPPASSGMAIL}
