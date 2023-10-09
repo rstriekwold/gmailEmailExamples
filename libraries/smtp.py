@@ -10,7 +10,7 @@ def send_email(subject, body, sender, recipients, user, password):
     smtp_server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
     smtp_server.login(user, password)
     smtp_server.sendmail(sender, recipients, msg.as_string())
-    logger.warn("mail send")
+    logger.info("mail send")
     smtp_server.quit()
 
 def reply_email(subject, body, sender, replyTo, user, password):
@@ -21,5 +21,5 @@ def reply_email(subject, body, sender, replyTo, user, password):
     smtp_server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
     smtp_server.login(user, password)
     smtp_server.sendmail(sender, replyTo, msg.as_string())
-    logger.warn("mail send")
+    logger.info("mail send")
     smtp_server.quit()
