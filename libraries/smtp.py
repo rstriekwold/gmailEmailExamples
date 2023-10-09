@@ -20,6 +20,6 @@ def reply_email(subject, body, sender, recipients, user, password):
     msg['Reply-To'] = "rstriekwold@copado.com"
     smtp_server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
     smtp_server.login(user, password)
-    smtp_server.sendmail(sender, recipients, msg.as_string())
+    smtp_server.sendmail(sender, "rstriekwold@copado.com", msg.as_string())
     logger.warn("mail send")
     smtp_server.quit()
