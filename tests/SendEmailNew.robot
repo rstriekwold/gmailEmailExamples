@@ -14,6 +14,7 @@ ${APPPASSGMAIL}
 ${sender}              robert.striekwold@gmail.com
 ${subject}
 ${recipients}          robert.striekwold@gmail.com
+${replyTo}            rstriekwold@copado.com
 
 
 *** Test Cases ***
@@ -27,6 +28,6 @@ Send Email
     
     ${test1}=          Verify Email Exist    email=${user}             pwd=${APPPASSGMAIL}    subject=${subject}    inbody=${body}
    
-   ${test}=           Get Email Id                email=${user}             pwd=${APPPASSGMAIL}    subject=${subject}    inbody=${body}
+#    ${test}=           Get Email Id                email=${user}             pwd=${APPPASSGMAIL}    subject=${subject}    inbody=${body}
     
-    Reply Email        ${subject}                  ${body}                   ${sender}              ${recipients}         ${user}           ${APPPASSGMAIL}     ${test}
+    Reply Email        ${subject}                  ${body}                   ${sender}              ${recipients}         ${user}           ${APPPASSGMAIL}
