@@ -24,5 +24,5 @@ Send Email
     ${body}=           Set Variable                Test email${timestamp}
     ${subject}=        Set Variable                Test email${timestamp}
     Send Email         ${subject}                  ${body}                    ${sender}    ${recipients}    ${user}    ${APPPASSGMAIL}
-    Sleep              5s
+
     ${test}=           Get Email Id         email=${user}       pwd=${APPPASSGMAIL}    subject=${subject}    inbody=${body}
