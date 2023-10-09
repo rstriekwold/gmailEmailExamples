@@ -51,7 +51,7 @@ def verify_email_exist(email, pwd, subject, inbody, folder='INBOX'):
 def get_email_id(email, pwd, subject, inbody, folder='INBOX'):
     with MailBox(host='imap.gmail.com', port=993).login(email, pwd, folder) as mailbox:
         msgid = [msg.uid for msg in mailbox.fetch(AND(subject=subject, text=inbody, seen=False), reverse = True)]
-    if len(bodies) == 0:
+    if len(msgid) == 0:
         BuiltIn().fail(f"No emails with specified criteria was found subject: {subject}, inbody: {inbody}")
     
     return msgid
