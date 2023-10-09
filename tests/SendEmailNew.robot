@@ -29,4 +29,4 @@ Send Email
    
 #    ${test}=           Get Email Id                email=${user}             pwd=${APPPASSGMAIL}    subject=${subject}    inbody=${body}
     
-    Reply Email        ${subject}                  ${body}                   ${sender}              ${recipients}         ${user}           ${APPPASSGMAIL}
+    Reply Email        RE:${subject}                  ${body}                   ${sender}              ${recipients}         ${user}           ${APPPASSGMAIL}
