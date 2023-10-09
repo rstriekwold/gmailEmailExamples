@@ -13,13 +13,13 @@ def send_email(subject, body, sender, recipients, user, password):
     logger.warn("mail send")
     smtp_server.quit()
 
-def reply_email(subject, body, sender, recipients, user, password, orig):
+def reply_email(subject, body, sender, replyTo, user, password):
     msg = MIMEText(body)
-    msg['Subject'] = subject
+    msg['Subject'] = "RE: "+subject
     msg['From'] = sender
-    msg['In-Reply-To'] = orig["Message-ID"]
+    msg['Reply-To'] = replyTo
     smtp_server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
     smtp_server.login(user, password)
-    smtp_server.sendmail(sender, "rstriekwold@copado.com", msg.as_string())
+    smtp_server.sendmail(sender, replyTo, msg.as_string())
     logger.warn("mail send")
     smtp_server.quit()
