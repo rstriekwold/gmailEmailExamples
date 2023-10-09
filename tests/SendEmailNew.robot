@@ -28,6 +28,5 @@ Send Email
     
     ${test1}=          Verify Email Exist    email=${user}             pwd=${APPPASSGMAIL}    subject=${subject}    inbody=${body}
    
-#    ${test}=           Get Email Id                email=${user}             pwd=${APPPASSGMAIL}    subject=${subject}    inbody=${body}
     
     Reply Email        ${subject}                  ${body}                   ${sender}              ${replyTo}         ${user}           ${APPPASSGMAIL}
