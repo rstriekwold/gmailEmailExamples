@@ -25,7 +25,6 @@ Send Email
     ${body}=           Set Variable                Test email${timestamp}
     ${subject}=        Set Variable                Test email${timestamp}
     Send Email         ${subject}                  ${body}                   ${sender}              ${recipients}         ${user}           ${APPPASSGMAIL}
-    
 
 Send Reply Email
     ${timestamp}=      Get Current Date
