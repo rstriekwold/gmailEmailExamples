@@ -30,11 +30,12 @@ def reply_email(subject, body, sender, replyTo, user, password):
     smtp_server.quit()
 
 def send_email_Attachments(subject, body, sender, recipients, user, password, files=['../tests/attachment.txt']):
-    msg = MIMEText(body)
+    #msg = MIMEText(body)
+    msg = MIMEMultipart()
     msg['Subject'] = subject
     msg['From'] = sender
     msg['To'] = recipients
-    #msg.attach(MIMEText(text))
+    msg.attach(MIMEText(body))
  
     for path in files:
         part = MIMEBase('application', "octet-stream")
