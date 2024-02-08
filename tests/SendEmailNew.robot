@@ -4,6 +4,7 @@ Library                DateTime
 Library                Collections
 Library                ../libraries/smtp.py
 Library                ../libraries/verifyEmail.py
+Library    OperatingSystem
 Suite Setup            OpenBrowser                 About:blank               Chrome
 Suite Teardown         CloseAllBrowsers
 
@@ -15,6 +16,7 @@ ${sender}              robert.striekwold@gmail.com
 ${subject}
 ${recipients}          robert.striekwold@gmail.com
 ${replyTo}            robert.striekwold@gmail.com
+
 
 
 *** Test Cases ***
@@ -43,3 +45,8 @@ Send Reply Email
 this is a testcase
     [Documentation]    dfdfdf
     ClickText          ererer
+    ${timestamp}=      Get Current Date
+    ${body}=           Set Variable                Test email${timestamp}
+    ${subject}=        Set Variable                Test email${timestamp}
+    ${File}=           get File     attachment.txt               
+    send email Attachments     ${subject}                  ${body}                   ${sender}              ${recipients}         ${user}           ${APPPASSGMAIL}    
