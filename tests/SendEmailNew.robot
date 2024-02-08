@@ -42,9 +42,9 @@ Send Reply Email
     #Fake reply email message with same subject and body and reply to address
     Reply Email        ${subject}                  ${body}                   ${sender}              ${replyTo}         ${user}           ${APPPASSGMAIL}
 
-this is a testcase
+this is a testcase with attachment
     [Documentation]    dfdfdf
-    ClickText          ererer
+    @{file}=             Create List    ../Test/attachment.txt
     ${timestamp}=      Get Current Date
     ${body}=           Set Variable                Test email${timestamp}
     ${subject}=        Set Variable                Test email${timestamp}
@@ -55,4 +55,5 @@ this is a testcase
     ...                ${sender}              
     ...                ${recipients}         
     ...                ${user}           
-    ...                ${APPPASSGMAIL} 
+    ...                ${APPPASSGMAIL}
+    ...                ${file}
