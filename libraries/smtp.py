@@ -1,6 +1,11 @@
 import smtplib
 from email.mime.text import MIMEText
 from robot.api import logger
+from pathlib import Path
+from email.mime.multipart import MIMEMultipart
+from email.mime.base import MIMEBase
+from email.utils import COMMASPACE, formatdate
+from email import encoders
 
 def send_email(subject, body, sender, recipients, user, password):
     msg = MIMEText(body)
