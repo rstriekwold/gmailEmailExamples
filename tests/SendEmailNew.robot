@@ -44,7 +44,7 @@ Send Reply Email
 
 this is a testcase with attachment
     [Documentation]    dfdfdf
-    @{file}=             Create List    ../Test/attachment.txt
+    @{files}=             Create List    ../tests/attachment.txt
     ${timestamp}=      Get Current Date
     ${body}=           Set Variable                Test email${timestamp}
     ${subject}=        Set Variable                Test email${timestamp}
@@ -56,4 +56,4 @@ this is a testcase with attachment
     ...                ${recipients}         
     ...                ${user}           
     ...                ${APPPASSGMAIL}
-    ...                ${file}
+    ...                ${files}
