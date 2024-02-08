@@ -44,11 +44,12 @@ Send Reply Email
 
 this is a testcase with attachment
     [Documentation]    dfdfdf
-    @{files}=             Create List    ../tests/attachment.txt
     ${timestamp}=      Get Current Date
     ${body}=           Set Variable                Test email${timestamp}
     ${subject}=        Set Variable                Test email${timestamp}
-    ${File}=           get File     attachment.txt               
+    
+    #Filepath needs to be given as from the .py file
+    @{files}=             Create List    ../tests/attachment.txt     
     send email Attachments     
     ...                ${subject}                  
     ...                ${body}                   
