@@ -49,4 +49,10 @@ this is a testcase
     ${body}=           Set Variable                Test email${timestamp}
     ${subject}=        Set Variable                Test email${timestamp}
     ${File}=           get File     attachment.txt               
-    send email Attachments     ${subject}                  ${body}                   ${sender}              ${recipients}         ${user}           ${APPPASSGMAIL}    
+    send email Attachments     
+    ...                ${subject}                  
+    ...                ${body}                   
+    ...                ${sender}              
+    ...                ${recipients}         
+    ...                ${user}           
+    ...                ${APPPASSGMAIL} 
