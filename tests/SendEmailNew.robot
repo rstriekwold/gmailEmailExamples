@@ -10,12 +10,12 @@ Suite Teardown         CloseAllBrowsers
 
 
 *** Variables ***
-${user}                robert.striekwold@gmail.com
+${user}                
 ${APPPASSGMAIL}
-${sender}              robert.striekwold@gmail.com
+${sender}              
 ${subject}
-${recipients}          robert.striekwold@gmail.com
-${replyTo}            robert.striekwold@gmail.com
+${recipients}          
+${replyTo}            
 
 
 
