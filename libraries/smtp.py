@@ -31,14 +31,13 @@ def send_email_Attachments(subject, body, sender, recipients, user, password, fi
     msg['To'] = recipients
     #msg.attach(MIMEText(text))
  
-    for f in files or []:
-        with open(f, "rb") as fil:
-            part = MIMEApplication(
-                fil.read(),
-                Name=basename(f)
-            )
-        # After the file is closed
-        part['Content-Disposition'] = 'attachment; filename="%s"' % basename(f)
+    for path in files:
+        part = MIMEBase('application', "octet-stream")
+        with open(path, 'rb') as file:
+            part.set_payload(file.read())
+        encoders.encode_base64(part)
+        part.add_header('Content-Disposition',
+                        'attachment; filename={}'.format(Path(path).name))
         msg.attach(part)
     smtp_server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
     smtp_server.login(user, password)
