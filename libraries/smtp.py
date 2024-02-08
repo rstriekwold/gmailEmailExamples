@@ -28,8 +28,8 @@ def reply_email(subject, body, sender, replyTo, user, password):
     smtp_server.sendmail(sender, replyTo, msg.as_string())
     logger.warn("mail send")
     smtp_server.quit()
-
-def send_email_Attachments(subject, body, sender, recipients, user, password, files=['../tests/attachment.txt']):
+# def send_email_Attachments(subject, body, sender, recipients, user, password, files=['../tests/attachment.txt']):
+def send_email_Attachments(subject, body, sender, recipients, user, password, files=[file]):
     #msg = MIMEText(body)
     msg = MIMEMultipart()
     msg['Subject'] = subject
